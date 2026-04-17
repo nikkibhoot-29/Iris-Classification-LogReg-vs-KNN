@@ -9,7 +9,7 @@ This project demonstrates a complete supervised machine learning workflow using 
 - Logistic Regression
 - K-Nearest Neighbors (KNN)
 
-The notebook includes data exploration, preprocessing, feature scaling, model training, evaluation, and model comparison.
+The project emphasizes how **data preparation and model choice influence performance**.
 
 ---
 
@@ -31,28 +31,71 @@ The dataset is balanced across classes.
 
 ---
 
-## Workflow
+## Data Preparation
 
-1. Data Loading and Inspection  
-2. Exploratory Data Analysis  
-3. Handling Missing Values  
-4. Feature Scaling  
-5. Train-Test Split (Stratified)  
-6. Model Training  
+The dataset was prepared to ensure reliability and consistency:
+
+- Converted features to appropriate numeric types  
+- Handled missing values:
+  - Mean imputation (numerical features)  
+  - Mode imputation (categorical feature: *Species*)  
+- Removed irrelevant column (`Unnamed: 0`)  
+
+---
+
+## Exploratory Data Analysis
+
+Exploratory analysis was conducted to understand feature distributions and relationships:
+
+- Scatter plot revealed strong class separability using petal features  
+- Histograms used for distribution analysis  
+- Boxplots highlighted variation across species  
+- Correlation heatmap identified relationships between variables  
+
+---
+
+## Methodology
+
+The following pipeline was implemented:
+
+1. Feature-target separation  
+2. Stratified train-test split  
+3. Feature scaling using `StandardScaler`  
+4. Model training:
    - Logistic Regression  
-   - KNN  
-7. Model Evaluation  
-8. Model Comparison  
+   - KNN (k = 5)  
+
+---
+
+## Evaluation Metrics
+
+Model performance was evaluated using:
+
+- Accuracy Score  
+- Confusion Matrix  
+- Classification Report  
 
 ---
 
 ## Results
 
-Both models achieved strong classification performance. Logistic Regression slightly outperformed KNN, suggesting near-linear separability of the dataset.
+| Model                | Accuracy |
+|---------------------|----------|
+| Logistic Regression | **94.7%** |
+| KNN (k = 5)         | **92.1%** |
 
 ---
 
-## Technologies Used
+## Key Insights
+
+- Logistic Regression slightly outperformed KNN  
+- The dataset exhibits **near-linear separability**  
+- Feature scaling had a **significant impact on KNN performance**  
+- Petal features are highly discriminative for classification  
+
+---
+
+## Tech Stack
 
 - Python  
 - Pandas  
@@ -60,6 +103,14 @@ Both models achieved strong classification performance. Logistic Regression slig
 - Matplotlib  
 - Seaborn  
 - Scikit-learn  
+
+---
+
+## Usage
+
+You can explore and run the project directly in Google Colab:
+
+👉 Click the **"Open in Colab"** button at the top of this README.
 
 ---
 
