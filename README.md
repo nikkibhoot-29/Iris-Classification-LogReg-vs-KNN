@@ -1,119 +1,133 @@
 # Iris Dataset Classification – Logistic Regression vs KNN
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nikkibhoot-29/Iris-Classification-LogReg-vs-KN/blob/main/IRIS%20dataset%20-%20Analysis.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nikkibhoot-29/Iris-Classification-LogReg-vs-KNN/blob/main/notebooks/IRIS%20dataset%20-%20Analysis.ipynb)
+
+Comparative classification analysis using Logistic Regression and K-Nearest Neighbors on the Iris dataset.
+
+---
 
 ## Overview
 
-This project demonstrates a complete supervised machine learning workflow using the Iris dataset. The objective is to classify iris flower species based on sepal and petal measurements and compare the performance of two classification algorithms:
+The Iris dataset is a classic benchmark for classification problems, containing measurements of flower characteristics across three species.
 
-- Logistic Regression
-- K-Nearest Neighbors (KNN)
+This project applies two fundamentally different approaches:
 
-The project emphasizes how **data preparation and model choice influence performance**.
+* Logistic Regression (linear model)
+* K-Nearest Neighbors (instance-based model)
 
----
-
-## Dataset
-
-The Iris dataset contains 150 observations across three species:
-
-- Iris-setosa
-- Iris-versicolor
-- Iris-virginica
-
-Features used:
-- Sepal Length (cm)
-- Sepal Width (cm)
-- Petal Length (cm)
-- Petal Width (cm)
-
-The dataset is balanced across classes.
+The objective is to compare their performance and understand how model choice affects classification outcomes.
 
 ---
 
-## Data Preparation
+## Problem
 
-The dataset was prepared to ensure reliability and consistency:
-
-- Converted features to appropriate numeric types  
-- Handled missing values:
-  - Mean imputation (numerical features)  
-  - Mode imputation (categorical feature: *Species*)  
-- Removed irrelevant column (`Unnamed: 0`)  
+Classify iris flowers into their respective species based on sepal and petal measurements, while evaluating the effectiveness of different classification techniques.
 
 ---
 
-## Exploratory Data Analysis
+## Data
 
-Exploratory analysis was conducted to understand feature distributions and relationships:
+The dataset includes:
 
-- Scatter plot revealed strong class separability using petal features  
-- Histograms used for distribution analysis  
-- Boxplots highlighted variation across species  
-- Correlation heatmap identified relationships between variables  
+* Sepal length and width
+* Petal length and width
+* Species (target variable)
+
+Basic preprocessing was applied to handle missing values and ensure consistency.
 
 ---
 
 ## Methodology
 
-The following pipeline was implemented:
+### Data Preparation
 
-1. Feature-target separation  
-2. Stratified train-test split  
-3. Feature scaling using `StandardScaler`  
-4. Model training:
-   - Logistic Regression  
-   - KNN (k = 5)  
+* Conversion of relevant columns to numeric format
+* Removal of irrelevant columns
+* Handling missing values using mean/median/mode
 
----
+### Feature Scaling
 
-## Evaluation Metrics
-
-Model performance was evaluated using:
-
-- Accuracy Score  
-- Confusion Matrix  
-- Classification Report  
+* Standardization applied using `StandardScaler`
 
 ---
 
-## Results
+## Modeling
 
-| Model                | Accuracy |
-|---------------------|----------|
-| Logistic Regression | **94.7%** |
-| KNN (k = 5)         | **92.1%** |
+### Models Used
+
+* Logistic Regression
+* K-Nearest Neighbors (K=5)
+
+---
+
+## Evaluation
+
+Models were evaluated using:
+
+* Accuracy
+* Confusion Matrix
+* Classification Report
+
+### Results
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| Logistic Regression | ~94–95%  |
+| K-Nearest Neighbors | ~92%     |
+
+→ Logistic Regression performs slightly better due to the near-linear separability of the dataset.
 
 ---
 
 ## Key Insights
 
-- Logistic Regression slightly outperformed KNN  
-- The dataset exhibits **near-linear separability**  
-- Feature scaling had a **significant impact on KNN performance**  
-- Petal features are highly discriminative for classification  
+* Iris dataset exhibits strong class separability
+* Logistic Regression performs well due to linear decision boundaries
+* KNN performs competitively but is sensitive to local variations
+* Feature scaling plays an important role in distance-based models like KNN
+
+---
+
+## Visual Insights
+
+### Correlation Analysis  
+
+<img src="images/correlation.png" width="500"/>
+
+### Feature Relationships  
+
+<img src="images/length_width.png" width="500"/>
+
+---
+
+## Execution
+
+The project is implemented in:
+
+* Jupyter Notebook (analysis & visualization)
+* `main.py` (reproducible pipeline)
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run:
+
+```bash
+python main.py
+```
 
 ---
 
 ## Tech Stack
 
-- Python  
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Seaborn  
-- Scikit-learn  
+Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn
 
 ---
 
-## Usage
+## Closing Note
 
-You can explore and run the project directly in Google Colab:
-
-👉 Click the **"Open in Colab"** button at the top of this README.
-
----
-
-## Author
-
-Nikki Bhoot
+Even simple datasets can highlight important differences between modeling approaches.
+This project emphasizes how model assumptions and data structure influence performance.
